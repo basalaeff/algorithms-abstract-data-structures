@@ -1,5 +1,5 @@
-#include <stdexcept>
 #include <iostream>
+#include <stdexcept>
 
 #include "1.rpn.hpp"
 
@@ -8,28 +8,24 @@
 // ============================================================================
 
 int performOperation(int left, int right, char operation) {
-  try {
-    switch (operation) {
-      case '+':
-        return left + right;
+  switch (operation) {
+    case '+':
+      return left + right;
 
-      case '-':
-        return left - right;
+    case '-':
+      return left - right;
 
-      case '*':
-        return left * right;
+    case '*':
+      return left * right;
 
-      case '/':
-        if (right == 0) {
-          throw std::runtime_error("Division by zero.");
-        }
+    case '/':
+      if (right == 0) {
+        throw std::runtime_error("Division by zero.");
+      }
 
-        return left / right;
+      return left / right;
 
-      default:
-        throw std::runtime_error("Unknown operator.");
-    }
-  } catch (const std::exception& e) {
-    std::cerr << "Error: " << e.what() << std::endl;
+    default:
+      throw std::runtime_error("Unknown operator.");
   }
 }
