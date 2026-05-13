@@ -1,4 +1,5 @@
 #include <cctype>
+#include <sstream>
 
 #include "../../ads/d.Stack/d.Stack.hpp"
 #include "1.rpn.hpp"
@@ -26,28 +27,28 @@
 int evaluatePostfix(const std::string& expression) {
   Stack stack;
 
-  for (char symbol : expression) {
-    // Пропускаем пробелы
-    if (symbol == ' ') {
-      continue;
+  // Добавляю поддержку чисел.
+  // Исправляю посимвольную обработку на обработку токенов
+  // Добавить многозначные и отрицательные
+  std::istringstream iss(expression);
+  std::string token;
+
+  while (iss >> token) {
+    // Если это число (включая многозначные и отрицательные)
+    if (std::isdigit(token[0]) ||
+        (token.size() > 1 && token[0] == '-' && std::isdigit(token[1]))) {
+      stack.push(token);
     }
 
-    // Если символ — число
-    if (std::isdigit(symbol)) {
-      std::string value(1, symbol);
-
-      stack.push(value);
-    }
-
-    // Если символ — оператор
-    else if (isOperator(symbol)) {
+    // Если оператор
+    else if (token.size() == 1 && isOperator(token[0])) {
       int right = std::stoi(stack.top());
       stack.pop();
 
       int left = std::stoi(stack.top());
       stack.pop();
 
-      int result = performOperation(left, right, symbol);
+      int result = performOperation(left, right, token[0]);
 
       stack.push(std::to_string(result));
     }
