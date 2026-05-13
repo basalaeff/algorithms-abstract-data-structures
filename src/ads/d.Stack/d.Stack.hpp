@@ -7,7 +7,7 @@
 class Stack {
  private:
   Node* top_;
-  double size_;
+  int size_;
 
  public:
   // ============================================================================
