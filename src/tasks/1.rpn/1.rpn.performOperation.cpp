@@ -7,7 +7,7 @@
 // Выполнение арифметической операции
 // ============================================================================
 
-int performOperation(int left, int right, char operation) {
+double performOperation(double left, double right, char operation) {
   switch (operation) {
     case '+':
       return left + right;

@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
   }
 
   try {
-    int result = evaluatePostfix(query);
+    double result = evaluatePostfix(query);
 
     std::cout << "Result: " << result << std::endl;
   }

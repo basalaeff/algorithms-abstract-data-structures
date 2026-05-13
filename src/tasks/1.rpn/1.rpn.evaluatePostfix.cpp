@@ -24,7 +24,7 @@
 // Ответ: 7
 // ============================================================================
 
-int evaluatePostfix(const std::string& expression) {
+double evaluatePostfix(const std::string& expression) {
   Stack stack;
 
   // Добавляю поддержку чисел.
@@ -34,25 +34,24 @@ int evaluatePostfix(const std::string& expression) {
   std::string token;
 
   while (iss >> token) {
-    // Если это число (включая многозначные и отрицательные)
-    if (std::isdigit(token[0]) ||
-        (token.size() > 1 && token[0] == '-' && std::isdigit(token[1]))) {
+    // Если это число (включая многозначные, дробные и отрицательные)
+    if (isNumber(token)) {
       stack.push(token);
     }
 
     // Если оператор
     else if (token.size() == 1 && isOperator(token[0])) {
-      int right = std::stoi(stack.top());
+      double right = std::stod(stack.top());
       stack.pop();
 
-      int left = std::stoi(stack.top());
+      double left = std::stod(stack.top());
       stack.pop();
 
-      int result = performOperation(left, right, token[0]);
+      double result = performOperation(left, right, token[0]);
 
       stack.push(std::to_string(result));
     }
   }
 
-  return std::stoi(stack.top());
+  return std::stod(stack.top());
 }
