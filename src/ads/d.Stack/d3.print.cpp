@@ -9,7 +9,7 @@
 //    - переходим к следующему узлу (temp = temp->next_).
 // Сложность: O(n), где n — количество элементов в стеке.
 
-void Stack::prdouble() const {
+void Stack::print() const {
   Node* temp = top_;
   while (temp != nullptr) {
     std::cout << temp->data_ << " ";
