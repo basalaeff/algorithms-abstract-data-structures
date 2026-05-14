@@ -1,0 +1,46 @@
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{1, 2, 3}, {2, 3, 4}, {5, 6}, {3, 4, 5}}'
+# Result: {{2, 3, 4}, {3, 4, 5}}, common elements count: 2
+Result: {{2, 3, 4}, {3, 4, 5}}, common elements count: 2
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{1, 2}, {3, 4}}'
+# Result: {{1, 2}, {3, 4}}, common elements count: 0
+Result: {{1, 2}, {3, 4}}, common elements count: 0
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{1, 2, 3}, {1, 2}, {2, 3}}'
+# Result: {{1, 2, 3}, {2, 3}}, common elements count: 2
+Result: {{1, 2, 3}, {2, 3}}, common elements count: 2
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{1, 1, 2, 2}, {2, 2, 3, 3}}'
+# Result: {{1, 2}, {2, 3}}, common elements count: 1
+Result: {{1, 2}, {2, 3}}, common elements count: 1
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{10, 20, 30}, {30, 20, 10}, {1}}'
+# Result: {{10, 20, 30}, {30, 20, 10}}, common elements count: 3
+Result: {{10, 20, 30}, {30, 20, 10}}, common elements count: 3
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{5}, {5}, {5}}'
+# Result: {{5}, {5}}, common elements count: 1
+Result: {{5}, {5}}, common elements count: 1
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{1}, {2}, {1, 2}}'
+# Result: {{1}, {1, 2}}, common elements count: 1
+Result: {{2}, {1, 2}}, common elements count: 1
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{100, 200, 300}, {200, 300, 400}, {100, 200, 300, 400}}'
+# Result: {{200, 300, 400}, {100, 200, 300, 400}}, common elements count: 3
+Result: {{200, 300, 400}, {100, 200, 300, 400}}, common elements count: 3
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{}, {1, 2}, {2}}'
+# Result: {{1, 2}, {2}}, common elements count: 1
+Result: {{1, 2}, {2}}, common elements count: 1
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{7, 8, 9}, {1, 7}, {7, 8}}'
+# Result: {{7, 8, 9}, {7, 8}}, common elements count: 2
+Result: {{7, 8, 9}, {7, 8}}, common elements count: 2
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{1, 2, 3}}'
+# Error: At least two sets are required.
+Error: At least two sets are required.
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{1, 2}, {0}}'
+# Error: Natural number must be greater than zero.
+Error: Natural number must be greater than zero.
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{1, 2}, {-3}}'
+# Error: Expected natural number.
+Error: Expected natural number.
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{{1, 2}, {3, }}'
+# Error: Expected natural number.
+Error: Expected natural number.
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ ./mic --q '{1, 2}, {3, 4}'
+# Error: Unexpected symbol outside outer set.
+Error: Unexpected symbol outside outer set.
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$
