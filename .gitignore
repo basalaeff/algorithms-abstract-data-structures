@@ -39,6 +39,7 @@
 *.out
 *.app
 rpn
+set
 
 # Build directories
 build/
