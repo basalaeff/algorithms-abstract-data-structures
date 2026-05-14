@@ -11,6 +11,7 @@ CXXFLAGS = -std=c++20 -Wall -Wextra -g -pthread -I.
 
 RPN_TARGET = rpn
 SET_TARGET = set
+MIC_TARGET = mic
 
 # ============================================================================
 # ИСХОДНЫЕ ФАЙЛЫ
@@ -22,18 +23,22 @@ RPN_SRCS += $(wildcard src/tasks/1.rpn/*.cpp)
 SET_SRCS = $(wildcard src/ads/g.Set/*.cpp)
 SET_SRCS += $(wildcard src/tasks/2.set/*.cpp)
 
+MIC_SRCS = $(wildcard src/ads/g.Set/*.cpp)
+MIC_SRCS += $(wildcard src/tasks/3.mic/*.cpp)
+
 # ============================================================================
 # OBJECT FILES
 # ============================================================================
 
 RPN_OBJS = $(RPN_SRCS:.cpp=.o)
 SET_OBJS = $(SET_SRCS:.cpp=.o)
+MIC_OBJS = $(MIC_SRCS:.cpp=.o)
 
 # ============================================================================
 # DEFAULT
 # ============================================================================
 
-all: rpn set
+all: rpn set mic
 
 # ============================================================================
 # BUILD RPN
@@ -58,6 +63,17 @@ set: $(SET_OBJS)
 	@echo "✅ $(SET_TARGET) build complete! run: ./$(SET_TARGET)"
 
 # ============================================================================
+# BUILD MIC
+# ============================================================================
+
+mic: $(MIC_OBJS)
+	@echo "🔗 Linking $(MIC_TARGET)..."
+	$(CXX) $(CXXFLAGS) -o $(MIC_TARGET) $(MIC_OBJS)
+	@echo "🗑️ Removing old files..."
+	rm -f $(MIC_OBJS)
+	@echo "✅ $(MIC_TARGET) build complete! run: ./$(MIC_TARGET)"
+
+# ============================================================================
 # COMPILE
 # ============================================================================
 
@@ -71,7 +87,7 @@ set: $(SET_OBJS)
 
 clean:
 	@echo "🗑️ Removing old files..."
-	rm -f $(RPN_TARGET) $(SET_TARGET)
+	rm -f $(RPN_TARGET) $(SET_TARGET) $(MIC_TARGET)
 	find src -name "*.o" -delete
 	rm -f *.db
 	@echo "✅ Clean complete!"
@@ -86,8 +102,11 @@ run-rpn: rpn
 run-set: set
 	./$(SET_TARGET)
 
+run-mic: mic
+	./$(MIC_TARGET)
+
 # ============================================================================
 # PHONY
 # ============================================================================
 
-.PHONY: all rpn set clean run-rpn run-set
+.PHONY: all rpn set mic clean run-rpn run-set run-mic
