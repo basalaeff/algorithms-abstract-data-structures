@@ -41,6 +41,7 @@
 rpn
 set
 mic
+pyramid
 
 # Build directories
 build/
