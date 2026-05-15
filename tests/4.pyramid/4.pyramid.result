@@ -1,0 +1,52 @@
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '3\n3 1\n2 2\n3 3\n' | ./pyramid
+# 5
+5
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '1\n10 7\n' | ./pyramid
+# 7
+7
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '4\n1 10\n2 20\n3 30\n4 40\n' | ./pyramid
+# 100
+100
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '4\n4 40\n3 30\n2 20\n1 10\n' | ./pyramid
+# 100
+100
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '3\n5 1\n5 10\n5 7\n' | ./pyramid
+# 10
+10
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '5\n4 1\n4 10\n2 3\n1 5\n2 8\n' | ./pyramid
+# 23
+23
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '6\n3 5\n1 2\n3 9\n2 4\n1 7\n2 1\n' | ./pyramid
+# 20
+20
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '2\n1000000000 1000000000\n999999999 1000000000\n' | ./pyramid
+# 2000000000
+2000000000
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '4\n1000000000 1\n1000000000 1000000000\n1 100\n1 200\n' | ./pyramid
+# 1000000200
+1000000200
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '0\n' | ./pyramid
+# Error: Blocks count must be from 1 to 100000.
+Error: Blocks count must be from 1 to 100000.
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '1\n0 5\n' | ./pyramid
+# Error: Block values must be from 1 to 1000000000.
+Error: Block values must be from 1 to 1000000000.
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '1\n5 0\n' | ./pyramid
+# Error: Block values must be from 1 to 1000000000.
+Error: Block values must be from 1 to 1000000000.
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$ printf '2\n5 3\n' | ./pyramid
+# Error: Block data not specified.
+Error: Block data not specified.
+basalaeff@WORKHORSE:/mnt/a/VScode/algorithms-abstract-data-structures$
+
+
+
+
+
+
+
+
+
+
+
+
