@@ -12,6 +12,7 @@ CXXFLAGS = -std=c++20 -Wall -Wextra -g -pthread -I.
 RPN_TARGET = rpn
 SET_TARGET = set
 MIC_TARGET = mic
+PYRAMID_TARGET = pyramid
 
 # ============================================================================
 # ИСХОДНЫЕ ФАЙЛЫ
@@ -26,6 +27,9 @@ SET_SRCS += $(wildcard src/tasks/2.set/*.cpp)
 MIC_SRCS = $(wildcard src/ads/g.Set/*.cpp)
 MIC_SRCS += $(wildcard src/tasks/3.mic/*.cpp)
 
+PYRAMID_SRCS = $(wildcard src/ads/a.Array/*.cpp)
+PYRAMID_SRCS += $(wildcard src/tasks/4.pyramid/*.cpp)
+
 # ============================================================================
 # OBJECT FILES
 # ============================================================================
@@ -33,12 +37,13 @@ MIC_SRCS += $(wildcard src/tasks/3.mic/*.cpp)
 RPN_OBJS = $(RPN_SRCS:.cpp=.o)
 SET_OBJS = $(SET_SRCS:.cpp=.o)
 MIC_OBJS = $(MIC_SRCS:.cpp=.o)
+PYRAMID_OBJS = $(PYRAMID_SRCS:.cpp=.o)
 
 # ============================================================================
 # DEFAULT
 # ============================================================================
 
-all: rpn set mic
+all: rpn set mic pyramid
 
 # ============================================================================
 # BUILD RPN
@@ -74,6 +79,17 @@ mic: $(MIC_OBJS)
 	@echo "✅ $(MIC_TARGET) build complete! run: ./$(MIC_TARGET)"
 
 # ============================================================================
+# BUILD PYRAMID
+# ============================================================================
+
+pyramid: $(PYRAMID_OBJS)
+	@echo "🔗 Linking $(PYRAMID_TARGET)..."
+	$(CXX) $(CXXFLAGS) -o $(PYRAMID_TARGET) $(PYRAMID_OBJS)
+	@echo "🗑️ Removing old files..."
+	rm -f $(PYRAMID_OBJS)
+	@echo "✅ $(PYRAMID_TARGET) build complete! run: ./$(PYRAMID_TARGET)"
+
+# ============================================================================
 # COMPILE
 # ============================================================================
 
@@ -87,7 +103,7 @@ mic: $(MIC_OBJS)
 
 clean:
 	@echo "🗑️ Removing old files..."
-	rm -f $(RPN_TARGET) $(SET_TARGET) $(MIC_TARGET)
+	rm -f $(RPN_TARGET) $(SET_TARGET) $(MIC_TARGET) $(PYRAMID_TARGET)
 	find src -name "*.o" -delete
 	rm -f *.db
 	@echo "✅ Clean complete!"
@@ -105,8 +121,11 @@ run-set: set
 run-mic: mic
 	./$(MIC_TARGET)
 
+run-pyramid: pyramid
+	./$(PYRAMID_TARGET)
+
 # ============================================================================
 # PHONY
 # ============================================================================
 
-.PHONY: all rpn set mic clean run-rpn run-set run-mic
+.PHONY: all rpn set mic pyramid clean run-rpn run-set run-mic run-pyramid
