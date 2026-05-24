@@ -27,3 +27,4 @@ class BinarySearchTree {
 #include "bst.clear.tpp"
 #include "bst.insert.tpp"
 #include "bst.collect.tpp"
+#include "bst.printTwoChildren.tpp"
