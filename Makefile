@@ -13,6 +13,7 @@ RPN_TARGET = rpn
 SET_TARGET = set
 MIC_TARGET = mic
 PYRAMID_TARGET = pyramid
+FORK_TARGET = fork
 
 # ============================================================================
 # ИСХОДНЫЕ ФАЙЛЫ
@@ -30,6 +31,9 @@ MIC_SRCS += $(wildcard src/tasks/3.mic/*.cpp)
 PYRAMID_SRCS = $(wildcard src/ads/a.Array/*.cpp)
 PYRAMID_SRCS += $(wildcard src/tasks/4.pyramid/*.cpp)
 
+FORK_SRCS = $(wildcard src/ads/BinarySearchTree/*.cpp)
+FORK_SRCS += $(wildcard src/tasks/5.fork/*.cpp)
+
 # ============================================================================
 # OBJECT FILES
 # ============================================================================
@@ -38,12 +42,13 @@ RPN_OBJS = $(RPN_SRCS:.cpp=.o)
 SET_OBJS = $(SET_SRCS:.cpp=.o)
 MIC_OBJS = $(MIC_SRCS:.cpp=.o)
 PYRAMID_OBJS = $(PYRAMID_SRCS:.cpp=.o)
+FORK_OBJS = $(FORK_SRCS:.cpp=.o)
 
 # ============================================================================
 # DEFAULT
 # ============================================================================
 
-all: rpn set mic pyramid
+all: rpn set mic pyramid fork
 
 # ============================================================================
 # BUILD RPN
@@ -90,6 +95,17 @@ pyramid: $(PYRAMID_OBJS)
 	@echo "✅ $(PYRAMID_TARGET) build complete! run: ./$(PYRAMID_TARGET)"
 
 # ============================================================================
+# BUILD FORK
+# ============================================================================
+
+fork: $(FORK_OBJS)
+	@echo "🔗 Linking $(FORK_TARGET)..."
+	$(CXX) $(CXXFLAGS) -o $(FORK_TARGET) $(FORK_OBJS)
+	@echo "🗑️ Removing old files..."
+	rm -f $(FORK_OBJS)
+	@echo "✅ $(FORK_TARGET) build complete! run: ./$(FORK_TARGET)"
+
+# ============================================================================
 # COMPILE
 # ============================================================================
 
@@ -103,7 +119,7 @@ pyramid: $(PYRAMID_OBJS)
 
 clean:
 	@echo "🗑️ Removing old files..."
-	rm -f $(RPN_TARGET) $(SET_TARGET) $(MIC_TARGET) $(PYRAMID_TARGET)
+	rm -f $(RPN_TARGET) $(SET_TARGET) $(MIC_TARGET) $(PYRAMID_TARGET) $(FORK_TARGET)
 	find src -name "*.o" -delete
 	rm -f *.db
 	@echo "✅ Clean complete!"
@@ -124,8 +140,11 @@ run-mic: mic
 run-pyramid: pyramid
 	./$(PYRAMID_TARGET)
 
+run-fork: fork
+	./$(FORK_TARGET)
+
 # ============================================================================
 # PHONY
 # ============================================================================
 
-.PHONY: all rpn set mic pyramid clean run-rpn run-set run-mic run-pyramid
+.PHONY: all rpn set mic pyramid fork clean run-rpn run-set run-mic run-pyramid run-fork
