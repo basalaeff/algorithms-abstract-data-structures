@@ -25,3 +25,4 @@ class BinarySearchTree {
   void printTwoChildren() const;
 };
 #include "bst.clear.tpp"
+#include "bst.insert.tpp"
