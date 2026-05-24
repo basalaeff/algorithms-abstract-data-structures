@@ -1,6 +1,7 @@
-#include "d.Stack.hpp"
 #include <fstream>
 #include <stdexcept>
+
+#include "d.Stack.hpp"
 
 // ============================================================================
 // СОХРАНЕНИЕ В ФАЙЛ
@@ -11,6 +12,7 @@ void Stack::saveToFile(const std::string& filename) const {
   if (!outFile.is_open()) {
     throw std::out_of_range("Cannot open file for writing: " + filename);
   }
+
   Node* temp = top_;
   while (temp != nullptr) {
     outFile << temp->data_ << std::endl;

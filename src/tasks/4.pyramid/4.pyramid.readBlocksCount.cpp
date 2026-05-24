@@ -1,7 +1,7 @@
-#include "4.pyramid.hpp"
-
 #include <istream>
 #include <stdexcept>
+
+#include "4.pyramid.hpp"
 
 // ============================================================================
 // ЧТЕНИЕ КОЛИЧЕСТВА БЛОКОВ

@@ -1,7 +1,7 @@
-#include "4.pyramid.hpp"
-
 #include <sstream>
 #include <stdexcept>
+
+#include "4.pyramid.hpp"
 
 // ============================================================================
 // ПОЛУЧЕНИЕ ШИРИНЫ БЛОКА

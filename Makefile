@@ -48,7 +48,14 @@ FORK_OBJS = $(FORK_SRCS:.cpp=.o)
 # DEFAULT
 # ============================================================================
 
-all: rpn set mic pyramid fork
+all: format rpn set mic pyramid fork
+
+format:
+	clang-format -i $(RPN_SRCS)
+	clang-format -i $(SET_SRCS)
+	clang-format -i $(MIC_SRCS)
+	clang-format -i $(PYRAMID_SRCS)
+	clang-format -i $(FORK_SRCS)
 
 # ============================================================================
 # BUILD RPN

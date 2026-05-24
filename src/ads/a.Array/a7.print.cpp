@@ -1,5 +1,6 @@
-#include "a.Array.hpp"
 #include <iostream>
+
+#include "a.Array.hpp"
 
 // ============================================================================
 // A7 Печать массива: APRINT

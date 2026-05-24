@@ -1,8 +1,8 @@
-#include "4.pyramid.hpp"
-
 #include <istream>
 #include <stdexcept>
 #include <string>
+
+#include "4.pyramid.hpp"
 
 // ============================================================================
 // ЧТЕНИЕ БЛОКОВ
