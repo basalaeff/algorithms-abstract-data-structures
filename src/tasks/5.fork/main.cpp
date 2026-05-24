@@ -37,9 +37,32 @@ int main(int argc, char* argv[]) {
     BinarySearchTree<int> tree;
     std::stringstream ss(query);
     int x;
-    while (ss >> x && x != 0) {
+
+    // Флаг:
+    // удалось ли считать хотя бы одно число
+    bool hasNumbers = false;
+
+    // Читаем числа
+    while (ss >> x) {
+      hasNumbers = true;
+
+      if (x == 0) {
+        break;
+      }
+
       tree.insert(x);
     }
+
+    // Если числа вообще не считались
+    if (!hasNumbers) {
+      throw std::invalid_argument("invalid query");
+    }
+
+    // Проверка мусора после чисел
+    if (!ss.eof()) {
+      throw std::invalid_argument("invalid input");
+    }
+
     tree.printTwoChildren();
   }
 
