@@ -18,11 +18,19 @@ file(GLOB SRC_SET
     "src/ads/Set/*.cpp"
 )
 
+file(GLOB SRC_MIC
+    "src/tasks/3.mic/*.cpp"
+    "src/ads/Set/*.cpp"
+)
+
 add_executable(rpn ${SRC_RPN})
 target_include_directories(rpn PRIVATE src)
 
 add_executable(set ${SRC_SET})
 target_include_directories(set PRIVATE src)
+
+add_executable(mic ${SRC_MIC})
+target_include_directories(mic PRIVATE src)
 
 # ====================== Formatting ======================
 file(GLOB_RECURSE FORMAT_FILES
