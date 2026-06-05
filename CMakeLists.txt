@@ -28,6 +28,11 @@ file(GLOB SRC_PYRAMID
     "src/ads/Array/*.cpp"
 )
 
+file(GLOB SRC_FORK
+    "src/tasks/5.fork/*.cpp"
+    "src/ads/BinarySearchTree/*.cpp"
+)
+
 add_executable(rpn ${SRC_RPN})
 target_include_directories(rpn PRIVATE src)
 
@@ -39,6 +44,9 @@ target_include_directories(mic PRIVATE src)
 
 add_executable(pyramid ${SRC_PYRAMID})
 target_include_directories(pyramid PRIVATE src)
+
+add_executable(fork ${SRC_FORK})
+target_include_directories(fork PRIVATE src)
 
 # ====================== Formatting ======================
 file(GLOB_RECURSE FORMAT_FILES
