@@ -3,7 +3,7 @@
 #include <iosfwd>
 #include <string>
 
-#include "../../ads/a.Array/a.Array.hpp"
+#include "../../ads/Array/Array.hpp"
 
 // ============================================================================
 // PYRAMID

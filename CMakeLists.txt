@@ -23,6 +23,11 @@ file(GLOB SRC_MIC
     "src/ads/Set/*.cpp"
 )
 
+file(GLOB SRC_PYRAMID
+    "src/tasks/4.pyramid/*.cpp"
+    "src/ads/Array/*.cpp"
+)
+
 add_executable(rpn ${SRC_RPN})
 target_include_directories(rpn PRIVATE src)
 
@@ -31,6 +36,9 @@ target_include_directories(set PRIVATE src)
 
 add_executable(mic ${SRC_MIC})
 target_include_directories(mic PRIVATE src)
+
+add_executable(pyramid ${SRC_PYRAMID})
+target_include_directories(pyramid PRIVATE src)
 
 # ====================== Formatting ======================
 file(GLOB_RECURSE FORMAT_FILES
