@@ -1,7 +1,7 @@
 // Рекурсивная функция для сбора узлов с двумя дочерними элементами
 template <typename T>
 void BinarySearchTree<T>::collect(TreeNode<T>* node,
-                        std::vector<T>& out) const {
+                                  std::vector<T>& out) const {
   if (!node) return;
 
   // обход левого поддерева

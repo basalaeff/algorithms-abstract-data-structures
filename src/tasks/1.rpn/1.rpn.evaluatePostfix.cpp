@@ -1,7 +1,7 @@
 #include <cctype>
 #include <sstream>
 
-#include "../../ads/d.Stack/d.Stack.hpp"
+#include "../../ads/Stack/Stack.hpp"
 #include "1.rpn.hpp"
 
 // ============================================================================

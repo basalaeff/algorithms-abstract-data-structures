@@ -1,7 +1,7 @@
 #include <fstream>
 #include <stdexcept>
 
-#include "d.Stack.hpp"
+#include "Stack.hpp"
 
 // ============================================================================
 // ЗАГРУЗКА ИЗ ФАЙЛА

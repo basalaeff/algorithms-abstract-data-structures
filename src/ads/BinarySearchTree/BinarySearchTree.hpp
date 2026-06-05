@@ -17,7 +17,7 @@ class BinarySearchTree {
   void collect(TreeNode<T>* node, std::vector<T>& out) const;
 
  public:
-  BinarySearchTree() : root_(nullptr) {};
+  BinarySearchTree() : root_(nullptr){};
   ~BinarySearchTree() { clear(root_); };
 
   void insert(T value);
@@ -25,6 +25,6 @@ class BinarySearchTree {
   void printTwoChildren() const;
 };
 #include "bst.clear.tpp"
-#include "bst.insert.tpp"
 #include "bst.collect.tpp"
+#include "bst.insert.tpp"
 #include "bst.printTwoChildren.tpp"
